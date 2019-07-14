@@ -3,15 +3,16 @@
 # Autor: marcelo contreras
 
 
-echo "Leer en un archivo"
-cat $1
-echo -e "\nAlmacenar los valores en una variable"
-valorCat=`cat $1`
-echo "$valorCat"
+echo "Operaciones de un archivo"
+mkdir -m 755 backupScripts
 
-# Se utiliza la variable IFS (Internal Field Separator) para evitar que los espacios en blanco al inicio al final se recortan
-echo -e "\nLeer archivos línea por línea utilizando while"
-while IFS= read linea
-do
-    echo "$linea"
-done < $1 
+echo -e "\nCopiar los scripts del directorio actual al nuevo directorio backupScripts"
+cp *.* backupScripts/
+ls -la backupScripts/
+
+echo -e "\nMover el directorio backupScripts a otra ubicación: $HOME"
+mv backupScripts $HOME
+
+
+echo -e "\nEliminar los archivos .txt"
+rm *.txt
